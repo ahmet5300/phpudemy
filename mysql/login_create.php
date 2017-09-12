@@ -1,15 +1,9 @@
  <?php
+include "db.php";
+include "function.php";
 if(isset($_POST['submit']))
 {
-$username= $_POST['username'];
-$password= $_POST['password'];
-
-$connection = mysqli_connect('localhost','root','root','loginapp');	
-	
-if($connection){
-	echo 'We are connected';
-}else{
-	die("database connection failed");
+ createRows();
 }
 	
 	
@@ -20,7 +14,6 @@ if($connection){
 //	else {
 //		echo 'Noo';
 //	}
-}
 
 ?>
  

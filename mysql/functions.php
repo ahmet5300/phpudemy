@@ -12,6 +12,28 @@ function showAllData()
 					echo "<option value='$id'>$id</option>";
 				}
 	}
+function createRows(){
+global $connection;
+$username= $_POST['username'];
+$password= $_POST['password'];
+
+$username= mysqli_real_escape_string($connection,$username);
+$password= mysqli_real_escape_string($connection,$password);
+	
+$connection = mysqli_connect('localhost','root','root','loginapp');	
+if($connection){
+	echo 'We are connected';
+}else{
+	die("database connection failed");
+}
+$query= "INSERT INTO users(username,password)";
+$query .= "VALUES ('$username','$password')";
+
+$result = mysqli_query($connection,$query);
+if(!$result){
+	die("Connection failed");
+}
+}
 
 function updateTable()
 {
