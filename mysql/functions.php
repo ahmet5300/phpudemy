@@ -19,14 +19,14 @@ $password= $_POST['password'];
 
 $username= mysqli_real_escape_string($connection,$username);
 $password= mysqli_real_escape_string($connection,$password);
+
+$hashFormat= "$2y$10$";
+$salt="iusesomecrazystrings22";
+$hashF_salt= $hashFormat . $salt;
+$password = crypt($password,$hashF_salt);
 	
-$connection = mysqli_connect('localhost','root','root','loginapp');	
-if($connection){
-	echo 'We are connected';
-}else{
-	die("database connection failed");
-}
-$query= "INSERT INTO users(username,password)";
+
+$query= "INSERT INTO users(username,password) ";
 $query .= "VALUES ('$username','$password')";
 
 $result = mysqli_query($connection,$query);
