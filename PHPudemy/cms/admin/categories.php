@@ -5,7 +5,8 @@
   <?php include "includes/navigation.php"?> 
 
         <div id="page-wrapper">
-         <div class="container-fluid">
+
+            <div class="container-fluid">
 
                 <!-- Page Heading -->
                 <div class="row">
@@ -16,8 +17,19 @@
                             Blank Page
                             <small>AHmet</small>
                         </h1>
+                        <div class="col-xs-6">
+                        <form action="">
+                        	<div class="form-group">
+                        		<label for="cat-title">Add Category:</label>
+                        		<input type="text" name="cat_title" class="form-control">
+                        	</div>
+                        	<div class="form-group">
+                        		<input type="submit" name="submit" value="Submit" class="btn btn-primary">
+                        	</div>
+                      </form></div>
                         
                     </div>
+                    
                 </div>
                 <!-- /.row -->
 
