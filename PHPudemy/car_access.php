@@ -7,7 +7,7 @@ class Car{
 	var $doors=4;
 	
 function __construct(){
-	echo $this->hood=4;
+	echo $this->hood;
 }
 }
 
