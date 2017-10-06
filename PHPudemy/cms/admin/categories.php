@@ -50,12 +50,7 @@
                       </form></div>
                         
   					 <div class="col-xs-6">
-							<?php
-							$query= "SELECT * FROM categories";
-							$result= mysqli_query($connection,$query);
-
-							?>
-                       	<table class="table table-bordered table-hover">
+					 	<table class="table table-bordered table-hover">
                        		<thead>
                        			<tr>
 									<th>Id</th>
@@ -64,6 +59,9 @@
                        		</thead>
                        		<tbody>
 								 <?php
+								$query= "SELECT * FROM categories";
+								$result= mysqli_query($connection,$query);
+
 								while ($row=mysqli_fetch_assoc($result))
 								{
 									$cat_id=$row['cat_id'];
@@ -71,8 +69,19 @@
 									echo "<tr>";
 									echo "<td>{$cat_id}</td>";
 									echo "<td>{$cat_title}</td>";
+									echo "<td><a href='categories.php?delete={$cat_id}'>DELETE</a></td>";
 									echo "</tr>";
 								}
+								?>
+                      			
+                      			<?php
+								if (isset($_GET['delete'])){
+									$url_cat_id = $_GET['delete'];
+									$del_query = "DELETE FROM categories WHERE cat_id = {$url_cat_id}";
+									$delete_result= mysqli_query($connection,$del_query);
+									header("location:categories.php");
+								}
+							
 								?>
                        			
                        		</tbody>
